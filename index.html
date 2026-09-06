@@ -16,10 +16,10 @@
         <h1 class="header-name">Lviv-Lviv</h1>
 
         <ul class="header-list">
-            <li>Про нас</li>
             <li>Зв'язок</li>
             <li><a href="#our-services" class="nav-link">Послуги</a></li>
             <li><a class="nav-link" href="#tariffs">Тарифи</a></li>
+            <li><a class="nav-link" href="#gallery">Наші роботи</a></li>
 
         </ul>
     </header>
@@ -148,6 +148,45 @@
     </div>
 </section>
 
-    
+<section id="gallery" class="gallery">
+    <div class="gallery-container">
+        
+        <div class="gallery-header">
+            <span class="gallery-tag">Наші роботи</span>
+            <h2 class="gallery-title">Галерея об'єктів</h2>
+            <p class="gallery-subtitle">Натисніть на фото, щоб розгорнути його на весь екран</p>
+        </div>
+
+        <div class="gallery-grid">
+            <div class="gallery-item large" onclick="openLightbox(this)">
+                <img src="./images/slider1.jpg" alt="Вантажні роботи 1">
+                <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="./images/slider2.jpg" alt="Вантажні роботи 2">
+                <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="./images/slider3.jpg" alt="Вантажні роботи 3">
+                <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
+            </div>
+            <div class="gallery-item wide" onclick="openLightbox(this)">
+                <img src="./images/slider4.jpg" alt="Вантажні роботи 4">
+                <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-content" id="lightboxImg">
+</div>
+
+    <script src="./index.js">
+        
+    </script>
 </body>
+
 </html>

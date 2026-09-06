@@ -223,7 +223,6 @@ a {
     margin-bottom: 20px;
 }
 
-
 @media screen and (max-width: 1024px) {
     .header {
         padding-left: 40px;
@@ -266,9 +265,24 @@ a {
         height: auto;
         aspect-ratio: 16 / 9;
     }
+
+    .our-services {
+        height: auto;
+        padding-bottom: 80px;
+    }
+
+    .all-services {
+        grid-template-columns: repeat(2, minmax(280px, 330px));
+        margin-top: 50px;
+    }
+
+    .service {
+        width: 100%;
+        height: auto; 
+        min-height: 290px;
+    }
 }
 
-/* Mobile Devices (Max Width: 600px) */
 @media screen and (max-width: 600px) {
     .header {
         padding: 15px 20px;
@@ -321,6 +335,25 @@ a {
 
     .our-services {
         height: auto;
-        padding: 40px 20px;
+        padding: 60px 20px;
+    }
+
+    .our-service-description br {
+        display: none; 
+    }
+
+    .all-services {
+        grid-template-columns: 1fr; 
+        margin-top: 40px;
+    }
+
+    .service {
+        width: 100%;
+        height: auto;
+        padding: 24px;
+    }
+
+    .service-desc {
+        padding-left: 20px; 
     }
 }

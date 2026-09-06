@@ -140,7 +140,7 @@ html {
     /* background-color: #0f4c811a; */
     background-color: #f0f9ff;
 
-    height: 1000px;
+    height: 1100px;
     width: 100%;
 }
 
@@ -152,7 +152,6 @@ a {
 
 .our-services {
     padding-top: 120px;
-    
 }
 .our-services-sign {
     padding: 15px;
@@ -183,6 +182,7 @@ a {
     grid-template-columns: 330px 330px 330px;
     justify-content: center;
     gap: 20px;
+    margin-bottom: 100px;
 }
 .service {
     width: 330px;
@@ -220,9 +220,173 @@ a {
     
 }
 .service-topic {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+}
+/* ==========================================
+   TARIFFS SECTION - HYBRID DESIGN
+   ========================================== */
+
+.tariffs {
+    background-color: #0f4c81;
+    padding: 100px 20px;
+    width: 100%;
 }
 
+.tariffs-container {
+    max-width: 640px; /* Вузька акуратна колонка для зручного читання */
+    margin: 0 auto;
+}
+
+/* Верхній блок */
+.tariffs-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.tariffs-tag {
+    padding: 10px 20px;
+    border-radius: 24px;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 14px;
+    margin-bottom: 16px;
+    backdrop-filter: blur(4px);
+}
+
+.tariffs-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 8px;
+}
+
+.tariffs-subtitle {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 300;
+}
+
+/* Основний контентний блок */
+.tariffs-content {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 36px;
+}
+
+.tariffs-instruction {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #ffffff;
+    margin-bottom: 36px;
+    font-weight: 300;
+}
+
+.tariffs-instruction strong {
+    color: #ffffff;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* Список переваг у попередньому мінімалістичному стилі */
+.tariffs-advantages {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 40px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.tariffs-advantages li {
+    font-size: 17px;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 400;
+}
+
+/* Елегантне тире замість круглих галочок */
+.tariffs-advantages li::before {
+    content: "—";
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 400;
+}
+
+/* Кнопки у попередньому мінімалістичному стилі */
+.tariffs-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.btn-primary,
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 24px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+/* Сувора біла кнопка */
+.btn-primary {
+    background-color: #ffffff;
+    color: #0f4c81;
+    border: 1px solid #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: #f0f0f0;
+    border-color: #f0f0f0;
+}
+
+/* Сувора контурна кнопка */
+.btn-secondary {
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.btn-secondary:hover {
+    border-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Мобільна адаптація */
+@media screen and (max-width: 600px) {
+    .tariffs {
+        padding: 60px 20px;
+    }
+
+    .tariffs-title {
+        font-size: 28px;
+    }
+
+    .tariffs-actions {
+        flex-direction: column;
+    }
+.btn-primary,
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+}
+.btn-primary .fa-telegram,
+.btn-primary i,
+.btn-secondary i {
+    margin-right: 10px !important; 
+}
+.fa-telegram {
+    font-size: 35px;
+}
 @media screen and (max-width: 1024px) {
     .header {
         padding-left: 40px;

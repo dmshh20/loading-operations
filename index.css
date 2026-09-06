@@ -358,56 +358,31 @@ a {
     border-color: rgba(255, 255, 255, 0.8);
     background-color: rgba(255, 255, 255, 0.08);
 }
+/* ==========================================
+   GLOBAL & BUTTON ICONS STYLES
+   ========================================== */
 
-@media screen and (max-width: 600px) {
-    /* ... твій існуючий код ... */
-
-    .our-services-topic {
-        text-align: center;
-        width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-        font-size: 26px; 
-    }
-}
-@media screen and (max-width: 1024px) {
-    /* ... твій існуючий код ... */
-
-    .our-services-topic {
-        text-align: center;
-        width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .tariffs {
-        padding: 60px 20px;
-    }
-
-    .tariffs-title {
-        font-size: 28px;
-    }
-
-    .tariffs-actions {
-        flex-direction: column;
-    }
 .btn-primary,
 .btn-secondary {
     display: inline-flex;
     align-items: center;
     justify-content: center;
 }
-}
+
 .btn-primary .fa-telegram,
 .btn-primary i,
 .btn-secondary i {
     margin-right: 10px !important; 
 }
+
 .fa-telegram {
     font-size: 35px;
 }
+
+/* ==========================================
+   TABLET ADAPTATION (max-width: 1024px)
+   ========================================== */
+
 @media screen and (max-width: 1024px) {
     .header {
         padding-left: 40px;
@@ -456,9 +431,18 @@ a {
         padding-bottom: 80px;
     }
 
+    /* Примусове центрування заголовка послуг */
+    .our-services-topic {
+        text-align: center !important;
+        width: 100% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
     .all-services {
         grid-template-columns: repeat(2, minmax(280px, 330px));
         margin-top: 50px;
+        justify-content: center;
     }
 
     .service {
@@ -466,7 +450,19 @@ a {
         height: auto; 
         min-height: 290px;
     }
+
+    .tariffs {
+        padding: 80px 40px;
+    }
+
+    .tariffs-container {
+        max-width: 100%;
+    }
 }
+
+/* ==========================================
+   MOBILE ADAPTATION (max-width: 600px)
+   ========================================== */
 
 @media screen and (max-width: 600px) {
     .header {
@@ -523,6 +519,15 @@ a {
         padding: 60px 20px;
     }
 
+    /* Заголовок послуг на мобільному */
+    .our-services-topic {
+        text-align: center !important;
+        width: 100% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        font-size: 26px;
+    }
+
     .our-service-description br {
         display: none; 
     }
@@ -541,28 +546,8 @@ a {
     .service-desc {
         padding-left: 20px; 
     }
-}
-/* ==========================================
-   TARIFFS ADAPTATION FOR MEDIA QUERIES
-   ========================================== */
 
-/* Планшети (max-width: 1024px) */
-@media screen and (max-width: 1024px) {
-    /* Твій існуючий код для header, main-section, our-services... */
-
-    .tariffs {
-        padding: 80px 40px;
-    }
-
-    .tariffs-container {
-        max-width: 100%;
-    }
-}
-
-/* Мобільні пристрої (max-width: 600px) */
-@media screen and (max-width: 600px) {
-    /* Твій існуючий код для header, main-section, our-services... */
-
+    /* Tariffs mobile */
     .tariffs {
         padding: 60px 20px;
     }
@@ -593,7 +578,6 @@ a {
         font-size: 15px;
     }
 
-    /* Кнопки розтягуються на всю ширину та стають одна під одною */
     .tariffs-actions {
         flex-direction: column;
         width: 100%;

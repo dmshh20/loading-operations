@@ -521,3 +521,69 @@ a {
         padding-left: 20px; 
     }
 }
+/* ==========================================
+   TARIFFS ADAPTATION FOR MEDIA QUERIES
+   ========================================== */
+
+/* Планшети (max-width: 1024px) */
+@media screen and (max-width: 1024px) {
+    /* Твій існуючий код для header, main-section, our-services... */
+
+    .tariffs {
+        padding: 80px 40px;
+    }
+
+    .tariffs-container {
+        max-width: 100%;
+    }
+}
+
+/* Мобільні пристрої (max-width: 600px) */
+@media screen and (max-width: 600px) {
+    /* Твій існуючий код для header, main-section, our-services... */
+
+    .tariffs {
+        padding: 60px 20px;
+    }
+
+    .tariffs-header {
+        margin-bottom: 30px;
+    }
+
+    .tariffs-title {
+        font-size: 26px;
+    }
+
+    .tariffs-subtitle {
+        font-size: 16px;
+    }
+
+    .tariffs-instruction {
+        font-size: 16px;
+        margin-bottom: 28px;
+    }
+
+    .tariffs-advantages {
+        gap: 12px;
+        margin-bottom: 32px;
+    }
+
+    .tariffs-advantages li {
+        font-size: 15px;
+    }
+
+    /* Кнопки розтягуються на всю ширину та стають одна під одною */
+    .tariffs-actions {
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+        padding: 16px;
+        font-size: 16px;
+        box-sizing: border-box;
+    }
+}

@@ -18,7 +18,7 @@
         </h1>
 
         <ul class="header-list">
-            <li>Зв'язок</li>
+            <li><a href="#connect">Зв'язок</a></li>
             <!-- <li><a href="#about">Про нас</a></li> -->
             <li><a href="#our-services" class="nav-link">Послуги</a></li>
             <li><a class="nav-link" href="#tariffs">Тарифи</a></li>
@@ -32,10 +32,11 @@
         <div class="company-description">
             <h1>Виконуємо вантажні роботи у Львові та області</h1>
              <ul>
-                <li>Підйом і спуск матеріалів</li>
-                <li>Завантаження та розвантаження</li>
-                <li>Вивіз сміття</li>
-                <li>Переїзди та демонтажні роботи</li>
+                <li>Вантажне таксі </li>
+                <li>Демонтажні роботи</li>
+                <li>Вивіз та утилізація сміття </li>
+                <li>Утилізація старих меблів </li>
+                <li>Офісні та квартирні Переїзди</li>
              </ul>
              <div class="main-buttons">
                  <button class="connect-with-us-btn">Зв'язок з нами <i class="fa-solid fa-arrow-right"></i></button>
@@ -138,6 +139,9 @@
                 <div class="service-photos">
                     <div class="service-photo-item" onclick="openLightbox(this)">
                         <img src="./images/first1.jpg" alt="Підйом будматеріалів 1">
+                    </div>
+                     <div class="service-photo-item" onclick="openLightbox(this)">
+                        <img src="./images/first2.jpg" alt="Підйом будматеріалів 2">
                     </div>
                     
                 </div>
@@ -259,10 +263,12 @@
             </ul>
 
             <div class="tariffs-actions">
-                <a href="https://t.me/gnag13" target="_blank" rel="noopener noreferrer" class="btn-primary">
+                <a href="https://t.me/yura03049" target="_blank" rel="noopener noreferrer" class="btn-primary">
                     <i class="fa-brands fa-telegram"></i> Написати в Telegram
                 </a>
-                <a href="#" class="btn-secondary">Надіслати у Viber</a>
+                <a href="https://wa.me/380502430640" class="btn-secondary" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-viber"></i> Надіслати у Viber
+                </a>
             </div>
         </div>
 
@@ -271,34 +277,74 @@
 
 <section id="gallery" class="gallery">
     <div class="gallery-container">
-        
         <div class="gallery-header">
             <span class="gallery-tag">Наші роботи</span>
             <h2 class="gallery-title">Галерея об'єктів</h2>
-            <p class="gallery-subtitle">Натисніть на фото, щоб розгорнути його на весь екран</p>
+            <p class="gallery-subtitle">Переглядайте роботи по 3–4 фото за раз</p>
         </div>
 
-        <div class="gallery-grid">
-            <div class="gallery-item large" onclick="openLightbox(this)">
-                <img src="./images/slider1.jpg" alt="Вантажні роботи 1">
-                <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
-            </div>
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="./images/slider2.jpg" alt="Вантажні роботи 2">
-                <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
-            </div>
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="./images/slider3.jpg" alt="Вантажні роботи 3">
-                <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
-            </div>
-            <div class="gallery-item wide" onclick="openLightbox(this)">
-                <img src="./images/slider4.jpg" alt="Вантажні роботи 4">
-                <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
-            </div>
-        </div>
+        <div class="gallery-slider">
+            <button class="gallery-arrow gallery-arrow--prev" type="button" aria-label="Попередні фото">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
 
+            <div class="gallery-track-wrapper">
+                <div class="gallery-track" id="galleryTrack"></div>
+            </div>
+
+            <button class="gallery-arrow gallery-arrow--next" type="button" aria-label="Наступні фото">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+        </div>
     </div>
 </section>
+
+<footer class="site-footer" id="connect">
+    <div class="footer-container">
+        <div class="footer-brand">
+            <div class="footer-logo">Lviv-Lviv</div>
+            <p>Професійні вантажні роботи, демонтаж, вивіз сміття та організація переїздів у Львові та області.</p>
+        </div>
+
+        <div class="footer-column">
+            <h3>Зв'язатися з нами</h3>
+            <ul class="footer-contact-list">
+                <li>
+                    <a href="tel:+380502430640">
+                        <i class="fa-solid fa-phone"></i>
+                        +38 (050) 243-06-40
+                    </a>
+                </li>
+                <li>
+                    <a href="https://t.me/yura03049" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-brands fa-telegram "></i>
+                        Telegram
+                    </a>
+                </li>
+                <li>
+                    <a href="https://wa.me/380502430640" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-brands fa-viber "></i>
+                        Viber
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h3>Робочий час</h3>
+            <ul class="footer-info-list">
+                <li><i class="fa-regular fa-clock"></i> Пн–Нд: 8:00–20:00</li>
+                <li><i class="fa-solid fa-location-dot"></i> Львів та область</li>
+                <li><i class="fa-solid fa-truck-moving"></i> Швидка відповідь на запити</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <span>© 2026 Lviv-Lviv</span>
+        <span>Вантажні роботи • Демонтаж • Вивіз сміття</span>
+    </div>
+</footer>
 
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
     <span class="lightbox-close">&times;</span>

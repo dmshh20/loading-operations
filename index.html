@@ -26,7 +26,7 @@
     <div class="header-right">
       <a href="tel:+380502430640" class="phone-link">050 243 06 40</a>
       <a href="#contacts" class="btn btn-accent" style="padding:11px 22px;">Замовити</a>
-      <button class="burger" id="burgerBtn" aria-label="Меню">
+      <button class="burger" id="burgerBtn" aria-label="Меню" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -367,9 +367,18 @@
   const burger = document.getElementById('burgerBtn');
   const mm = document.getElementById('mobileMenu');
   const mmClose = document.getElementById('mmClose');
-  burger.addEventListener('click', () => mm.classList.add('open'));
-  mmClose.addEventListener('click', () => mm.classList.remove('open'));
-  mm.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mm.classList.remove('open')));
+  burger.addEventListener('click', () => {
+    const isOpen = mm.classList.toggle('open');
+    burger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+  mmClose.addEventListener('click', () => {
+    mm.classList.remove('open');
+    burger.setAttribute('aria-expanded', 'false');
+  });
+  mm.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mm.classList.remove('open');
+    burger.setAttribute('aria-expanded', 'false');
+  }));
 
   // reveal on scroll
   const revealEls = document.querySelectorAll('.reveal');

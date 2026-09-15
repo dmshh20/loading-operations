@@ -100,7 +100,7 @@
   .burger span{width:24px;height:2px;background:#fff;border-radius:2px;}
 
   .mobile-menu{
-    position:fixed;inset:0;background:var(--navy);z-index:99;
+    position:fixed;inset:0;background:var(--navy);z-index:201;
     display:flex;flex-direction:column;justify-content:center;padding:40px;
     transform:translateY(-100%);transition:transform .5s var(--ease);
   }
@@ -411,3 +411,32 @@
   @media(max-width:760px){.f-top{grid-template-columns:1fr;gap:36px;}}
 
   :focus-visible{outline:2px solid var(--accent-2);outline-offset:2px;}
+
+/* ---------- responsive header & mobile tweaks ---------- */
+@media (max-width:980px){
+  /* hide full desktop nav, show burger */
+  .desktop-nav{display:none !important}
+  .burger{display:flex}
+  /* compact header right actions on tablet */
+  .header-right .btn{display:none}
+  .header-right .phone-link{font-size:14px}
+  header .wrap{padding:0 20px}
+}
+
+@media (max-width:560px){
+  /* mobile adjustments */
+  header{padding:12px 0}
+  .logo{font-size:15px;gap:8px}
+  .logo-mark{width:30px;height:30px;border-radius:8px;font-size:14px}
+  .burger span{width:20px;height:2px}
+  .header-right{gap:10px}
+  .header-right .phone-link{display:block;font-size:14px}
+  /* ensure hero content is not obscured by fixed header */
+  .hero{padding-top:120px}
+}
+
+@media (max-width:420px){
+  .mobile-menu a{font-size:22px}
+  .mobile-menu{padding:28px}
+  .mobile-menu .mm-close{top:18px;right:18px;font-size:28px}
+}

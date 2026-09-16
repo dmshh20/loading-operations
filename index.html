@@ -272,15 +272,16 @@
       <h2>Наші роботи</h2>
       <p>Приклади виконаних вантажних, підсобних та демонтажних робіт у Львові та області.</p>
     </div>
-    <div class="g-grid">
-      <div class="g-item g-a" data-title="Вантажні роботи"><img src="https://dmshh20.github.io/loading-operations/images/second1.jpg" alt="Вантажні роботи"><div class="g-overlay"><span>Вантажні роботи →</span></div></div>
-      <div class="g-item g-c" data-title="Підйом матеріалів"><img src="https://dmshh20.github.io/loading-operations/images/first1.jpg" alt="Підйом будматеріалів"><div class="g-overlay"><span>Підйом матеріалів →</span></div></div>
-      <div class="g-item g-c" data-title="Демонтаж"><img src="https://dmshh20.github.io/loading-operations/images/third1.jpg" alt="Демонтажні роботи"><div class="g-overlay"><span>Демонтаж →</span></div></div>
-      <div class="g-item g-b" data-title="Вивіз сміття"><img src="https://dmshh20.github.io/loading-operations/images/down.jpg" alt="Вивіз будівельного сміття"><div class="g-overlay"><span>Вивіз сміття →</span></div></div>
-      <div class="g-item g-d" data-title="Утилізація меблів"><img src="https://dmshh20.github.io/loading-operations/images/second3.jpg" alt="Утилізація старих меблів"><div class="g-overlay"><span>Утилізація меблів →</span></div></div>
-      <div class="g-item g-c" data-title="Переїзди"><img src="https://dmshh20.github.io/loading-operations/images/second4.jpg" alt="Квартирні переїзди"><div class="g-overlay"><span>Переїзди →</span></div></div>
-      <div class="g-item g-b" data-title="Об'єкт після демонтажу"><img src="https://dmshh20.github.io/loading-operations/images/third2.jpg" alt="Підготовка приміщення"><div class="g-overlay"><span>Підготовка об'єкта →</span></div></div>
+
+    <div class="gallery-slider reveal">
+      <button class="gallery-arrow gallery-arrow-prev" type="button" aria-label="Попередні фото">←</button>
+      <div class="gallery-stage">
+        <div class="gallery-track" id="galleryTrack"></div>
+      </div>
+      <button class="gallery-arrow gallery-arrow-next" type="button" aria-label="Наступні фото">→</button>
     </div>
+
+    <div class="gallery-dots" id="galleryDots" aria-label="Навігація фото"></div>
   </div>
 </section>
 
@@ -397,21 +398,122 @@
   }, { threshold: 0.15 });
   revealEls.forEach(el => io.observe(el));
 
-  // lightbox
+  // gallery carousel
+  const galleryImages = [
+    { src: 'images/first1.jpg', alt: 'Підйом будматеріалів', },
+    { src: 'images/first2.jpg', alt: 'Підйом матеріалів',  },
+    { src: 'images/first3.jpg', alt: 'Робота на складі',  },
+    { src: 'images/second1.jpg', alt: 'Вантажні роботи',  },
+    { src: 'images/second2.jpg', alt: 'Перенесення меблів',  },
+    { src: 'images/second3.jpg', alt: 'Утилізація меблів',  },
+    { src: 'images/second4.jpg', alt: 'Квартирні переїзди',  },
+    { src: 'images/third1.jpg', alt: 'Демонтажні роботи',  },
+    { src: 'images/third2.jpg', alt: 'Підготовка приміщення',  },
+    { src: 'images/down.jpg', alt: 'Спуск і вивіз сміття',  },
+    { src: 'images/down2.jpg', alt: 'Вивіз будівельного сміття',  },
+    { src: 'images/office.jpg', alt: 'Офісні перевезення',  },
+    { src: 'images/gallery1.jpg', alt: 'Наші роботи',  },
+    { src: 'images/gallery2.jpg', alt: 'Наші роботи', },
+    { src: 'images/gallery3.jpg', alt: 'Наші роботи',  },
+    { src: 'images/gallery4.jpg', alt: 'Наші роботи',  },
+    { src: 'images/gallery5.jpg', alt: 'Наші роботи',  },
+    { src: 'images/gallery6.jpg', alt: 'Наші роботи',  },
+    { src: 'images/gallery7.jpg', alt: 'Наші роботи', },
+    { src: 'images/gallery8.jpg', alt: 'Наші роботи',  },
+    { src: 'images/gallery9.jpg', alt: 'Наші роботи',  },
+    { src: 'images/gallery10.jpg', alt: 'Наші роботи',  },
+    { src: 'images/slider2.jpg', alt: 'Вантажники на об’єкті',  },
+    { src: 'images/slider3.jpg', alt: 'Робота на складі',  },
+    { src: 'images/slider4.jpg', alt: 'Завантаження вантажу',  }
+  ];
+
+  const galleryTrack = document.getElementById('galleryTrack');
+  const galleryDots = document.getElementById('galleryDots');
+  const prevBtn = document.querySelector('.gallery-arrow-prev');
+  const nextBtn = document.querySelector('.gallery-arrow-next');
+  const infiniteGallery = [...galleryImages, ...galleryImages];
+  let currentIndex = 0;
+  let autoplayId = null;
+
+  function renderGallery() {
+    galleryTrack.innerHTML = infiniteGallery.map((image, idx) => `
+      <figure class="gallery-slide ${idx === currentIndex ? 'is-active' : ''}" data-index="${idx % galleryImages.length}" aria-label="${image.title}">
+        <img src="${image.src}" alt="${image.alt}">
+      </figure>
+    `).join('');
+
+    galleryDots.innerHTML = galleryImages.map((image, index) => `
+      <button class="gallery-dot ${index === currentIndex % galleryImages.length ? 'is-active' : ''}" type="button" data-index="${index}" aria-label="Показати фото ${index + 1}"></button>
+    `).join('');
+
+    const firstSlide = galleryTrack.querySelector('.gallery-slide');
+    if (!firstSlide) return;
+
+    const gap = parseFloat(getComputedStyle(galleryTrack).gap || '12');
+    const slideWidth = firstSlide.getBoundingClientRect().width + gap;
+    galleryTrack.style.transition = 'none';
+    galleryTrack.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+
+    requestAnimationFrame(() => {
+      galleryTrack.style.transition = 'transform 0.6s cubic-bezier(.22,1,.36,1)';
+      galleryTrack.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+    });
+
+    document.querySelectorAll('.gallery-slide').forEach((slide) => {
+      slide.addEventListener('click', () => {
+        const img = slide.querySelector('img');
+        const lightbox = document.getElementById('lightbox');
+        const lbImg = document.getElementById('lbImg');
+        lbImg.src = img.src;
+        lbImg.alt = img.alt;
+        lightbox.classList.add('open');
+      });
+    });
+
+    document.querySelectorAll('.gallery-dot').forEach((dot) => {
+      dot.addEventListener('click', () => {
+        currentIndex = Number(dot.dataset.index);
+        renderGallery();
+        restartAutoplay();
+      });
+    });
+  }
+
+  function goToSlide(direction) {
+    currentIndex += direction;
+
+    if (currentIndex < 0) {
+      currentIndex = galleryImages.length - 1;
+    } else if (currentIndex >= galleryImages.length) {
+      currentIndex = 0;
+    }
+
+    renderGallery();
+    restartAutoplay();
+  }
+
+  function restartAutoplay() {
+    clearInterval(autoplayId);
+    autoplayId = setInterval(() => {
+      currentIndex = (currentIndex + 1) % galleryImages.length;
+      renderGallery();
+    }, 3500);
+  }
+
+  prevBtn.addEventListener('click', () => goToSlide(-1));
+  nextBtn.addEventListener('click', () => goToSlide(1));
+  window.addEventListener('resize', renderGallery);
+
+  renderGallery();
+  restartAutoplay();
+
   const lightbox = document.getElementById('lightbox');
   const lbImg = document.getElementById('lbImg');
-  document.querySelectorAll('.g-item').forEach(item => {
-    item.addEventListener('click', () => {
-      lbImg.src = item.querySelector('img').src;
-      lbImg.alt = item.querySelector('img').alt;
-      lightbox.classList.add('open');
-    });
-  });
   document.getElementById('lbClose').addEventListener('click', () => lightbox.classList.remove('open'));
   lightbox.addEventListener('click', (e) => { if (e.target === lightbox) lightbox.classList.remove('open'); });
 
   // form submit via FormSubmit (no custom backend required)
-  const FORM_ENDPOINT = 'https://formsubmit.co/ajax/your-email@example.com';
+  const FORM_ENDPOINT = 'https://formsubmit.co/ajax/dmshh12@gmail.com';
 
   document.getElementById('orderForm').addEventListener('submit', async function(e){
     e.preventDefault();

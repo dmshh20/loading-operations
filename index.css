@@ -62,6 +62,8 @@
   .btn-ghost-dark:hover{border-color:#fff;transform:translateY(-2px);}
   .btn-ghost-light{border-color:rgba(14,26,43,.2);color:var(--navy);}
   .btn-ghost-light:hover{border-color:var(--navy);transform:translateY(-2px);}
+  .btn-whatsapp{background:#25D366;color:#0B1F12;}
+  .btn-whatsapp:hover{background:#1fbf5a;transform:translateY(-2px);box-shadow:0 10px 24px -8px rgba(37,211,102,.45);}
   .btn-tg{background:#229ED9;color:#fff;}
   .btn-tg:hover{background:#1c86b8;transform:translateY(-2px);}
 
